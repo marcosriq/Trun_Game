@@ -1,2 +1,2 @@
-# Trun_Game
+# Turn_Game
 Jogo de tabuleiro em turnos
