@@ -3,79 +3,102 @@ guid: 8325fa4c3709a594bb52bb052afe1e90
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Champion_1
-    100002: Champion_2
-    100004: Champion_3
-    100006: Enemy_2
-    100008: Enemy_2.001
-    100010: Enemy_2.002
+    100000: ChampionSlot_1
+    100002: ChampionSlot_2
+    100004: ChampionSlot_3
+    100006: EnemySlot_1
+    100008: EnemySlot_2
+    100010: EnemySlot_3
     100012: Special_1
-    100014: Special_2
+    100014: Special_1.001
     100016: //RootNode
     100018: Table_1
     100020: Table_1.001
-    100022: Camera
-    100024: Lamp
-    100026: Lamp.001
-    100028: Lamp.002
-    400000: Champion_1
-    400002: Champion_2
-    400004: Champion_3
-    400006: Enemy_2
-    400008: Enemy_2.001
-    400010: Enemy_2.002
+    400000: ChampionSlot_1
+    400002: ChampionSlot_2
+    400004: ChampionSlot_3
+    400006: EnemySlot_1
+    400008: EnemySlot_2
+    400010: EnemySlot_3
     400012: Special_1
-    400014: Special_2
+    400014: Special_1.001
     400016: //RootNode
     400018: Table_1
     400020: Table_1.001
-    400022: Camera
-    400024: Lamp
-    400026: Lamp.001
-    400028: Lamp.002
-    2000000: Camera
-    2100000: Material.003
-    2100002: Material.001
-    2100004: Material.006
-    2100006: Material.002
-    2100008: Material.008
-    2100010: Material.005
-    2100012: Material.007
-    2100014: Material
-    2300000: Champion_1
-    2300002: Champion_2
-    2300004: Champion_3
-    2300006: Enemy_2
-    2300008: Enemy_2.001
-    2300010: Enemy_2.002
+    2100000: Table_Border
+    2100002: Table_Background
+    2100004: Table_Center
+    2100006: SkillsFrame
+    2100008: ChampionsSlot_Frame
+    2100010: ChampionsSlot_Flag
+    2100012: ChampionsSlot_Heart
+    2100014: ChampionsSlot_Swords
+    2300000: ChampionSlot_1
+    2300002: ChampionSlot_2
+    2300004: ChampionSlot_3
+    2300006: EnemySlot_1
+    2300008: EnemySlot_2
+    2300010: EnemySlot_3
     2300012: Special_1
-    2300014: Special_2
+    2300014: Special_1.001
     2300016: Table_1
     2300018: Table_1.001
-    3300000: Champion_1
-    3300002: Champion_2
-    3300004: Champion_3
-    3300006: Enemy_2
-    3300008: Enemy_2.001
-    3300010: Enemy_2.002
+    3300000: ChampionSlot_1
+    3300002: ChampionSlot_2
+    3300004: ChampionSlot_3
+    3300006: EnemySlot_1
+    3300008: EnemySlot_2
+    3300010: EnemySlot_3
     3300012: Special_1
-    3300014: Special_2
+    3300014: Special_1.001
     3300016: Table_1
     3300018: Table_1.001
-    4300000: Champion_3
-    4300002: Champion_2
-    4300004: Champion_1
-    4300006: Table_1.001
-    4300008: Special_2
-    4300010: Enemy_2.002
-    4300012: Enemy_2.001
-    4300014: Enemy_2
-    4300016: Table_1
-    4300018: Special_1
-    10800000: Lamp
-    10800002: Lamp.001
-    10800004: Lamp.002
-  externalObjects: {}
+    4300000: Table_1.001
+    4300002: Special_1.001
+    4300004: EnemySlot_3
+    4300006: ChampionSlot_3
+    4300008: Table_1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChampionsSlot_Flag
+    second: {fileID: 2100000, guid: 17065a9a2daa5f74caa6bfb1a3f3f2cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChampionsSlot_Frame
+    second: {fileID: 2100000, guid: 726882c9b85ff2545adf5e5770f2f6c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChampionsSlot_Heart
+    second: {fileID: 2100000, guid: eced162cd1a1456438b399192e728df1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChampionsSlot_Swords
+    second: {fileID: 2100000, guid: 829adb049852c3e44991139a7eeaa85f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SkillsFrame
+    second: {fileID: 2100000, guid: 7c8edf86d87f68444898dce7995bb4c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table_Background
+    second: {fileID: 2100000, guid: 53ff510cba34298428ad0620c70afe7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table_Border
+    second: {fileID: 2100000, guid: f2a2f8ee2f12d794791fe8c685943f14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table_Center
+    second: {fileID: 2100000, guid: 5fa5de45fc8055743a4548cf64e35c3c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
