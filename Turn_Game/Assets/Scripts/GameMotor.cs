@@ -4,60 +4,89 @@ using UnityEngine;
 
 public class GameMotor : MonoBehaviour {
 
+    public ChampionsBase championUnderMouse;
     public ChampionsBase ChampionSelected;
-    [HideInInspector]
-    public int selectedChampions;
-
     public GameObject[] champions;
-    private bool canAttack;
 	// Use this for initialization
 	void Start () {
         champions = GameObject.FindGameObjectsWithTag("Champion");
-        canAttack = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        //////////Sistema de seleção e ataque \/
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red);
+            if (hit.transform != null)
             {
                 if (hit.transform.tag == "Champion")
                 {
-                    if (selectedChampions == 0)
+                    //Guarda o campeão sob o mouse em uma variável global\/
+                    championUnderMouse = hit.transform.GetComponent<ChampionsBase>();
+                    if (!championUnderMouse.selected)
+                        //Ativa o efeito de destaque do personagem sob o mouse\/
+                        championUnderMouse.highlightChampEffect.SetActive(true);
+
+                    if (ChampionSelected == null)
                     {
-                        hit.transform.GetComponent<ChampionsBase>().selected = true;
-                        Debug.Log("You selected the " + hit.transform.name);
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            unselectAll();
+                            championUnderMouse.selected = true;
+                            Debug.Log("You selected the " + hit.transform.name);
+                        }
                     }
-                    else {
-                        unselectAll();
-                        hit.transform.GetComponent<ChampionsBase>().selected = true;
+                    else
+                    {
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            if (championUnderMouse == ChampionSelected)
+                                unselectAll();
+                            else
+                            {
+                                unselectAll();
+                                championUnderMouse.selected = true;
+                                Debug.Log("You selected the " + hit.transform.name);
+                            }
+                        }
                     }
                 }
-                if(hit.transform.tag == "Enemy")
+                else
                 {
-                    if (selectedChampions != 0)
+                    if (championUnderMouse != null)
                     {
-                        hit.transform.GetComponent<ChampionsBase>().life -= ChampionSelected.damage;
+                        //impede que o efeito de destaque seja ativado junto com o efeito de seleção\/
+                        championUnderMouse.highlightChampEffect.SetActive(false);
+                        championUnderMouse = null;
+                    }
+                }
+                if (hit.transform.tag == "Enemy")
+                {
+                    //Verifica se há um campeão selecionado para que o inimigo possa ser selecionado como alvo\/
+                    if (ChampionSelected != null)
+                    {
+                        hit.transform.GetComponent<ChampionsBase>().highlightChampEffect.SetActive(true);
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            hit.transform.GetComponent<ChampionsBase>().life -= ChampionSelected.damage;
+                        }
                     }
                 }
             }
-        }
-        if (selectedChampions != 0)
-        {
-            canAttack = true;
+            
         }
     }
-    
     void unselectAll()
     {
         for(int i = 0;i < champions.Length;i++)
         {
-            champions[i].GetComponent<Champion>().selected = false;
+            champions[i].GetComponent<ChampionsBase>().highlightChampEffect.SetActive(false);
+            champions[i].GetComponent<ChampionsBase>().selected = false;
         }
-        selectedChampions = 0;
         ChampionSelected = null;
     }
 }
