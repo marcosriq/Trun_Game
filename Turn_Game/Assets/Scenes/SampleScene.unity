@@ -556,7 +556,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 50ebf7fa355e223419dabc461240f5aa, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ca5dd0d4be5873458e8ee9950e041cf, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -885,7 +885,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 50ebf7fa355e223419dabc461240f5aa, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ca5dd0d4be5873458e8ee9950e041cf, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -1021,7 +1021,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 50ebf7fa355e223419dabc461240f5aa, type: 2}
+      objectReference: {fileID: 2100000, guid: 4ca5dd0d4be5873458e8ee9950e041cf, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -1822,7 +1822,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 0e3e4e74767dce14194032c760e328f3, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -2149,7 +2149,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 0e3e4e74767dce14194032c760e328f3, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -2224,6 +2224,7 @@ MonoBehaviour:
   championUnderMouse: {fileID: 0}
   ChampionSelected: {fileID: 0}
   champions: []
+  myTurn: 1
 --- !u!1001 &2029309646
 Prefab:
   m_ObjectHideFlags: 0
@@ -2298,7 +2299,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 0e3e4e74767dce14194032c760e328f3, type: 2}
     - target: {fileID: 212638216797318018, guid: 2868ebdeabe0e9e4db81454474e96d98,
         type: 2}
       propertyPath: m_Materials.Array.data[0]

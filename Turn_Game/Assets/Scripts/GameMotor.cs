@@ -7,15 +7,15 @@ public class GameMotor : MonoBehaviour {
     public ChampionsBase championUnderMouse;
     public ChampionsBase ChampionSelected;
     public GameObject[] champions;
-	// Use this for initialization
+    public bool myTurn;
+
 	void Start () {
         champions = GameObject.FindGameObjectsWithTag("Champion");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        //////////Sistema de seleção e ataque \/
+        //Sistema de seleção e ataque \/
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
@@ -35,24 +35,38 @@ public class GameMotor : MonoBehaviour {
                     {
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
-                            unselectAll();
-                            championUnderMouse.selected = true;
-                            Debug.Log("You selected the " + hit.transform.name);
+                            if (myTurn)
+                            {
+                                unselectAll();
+                                championUnderMouse.selected = true;
+                                Debug.Log("You selected the " + hit.transform.name);
+                            }
+                            else
+                            {
+                                Debug.Log("Ainda não é seu turno");
+                            }
                         }
                     }
                     else
                     {
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
-                            if (championUnderMouse == ChampionSelected)
-                                unselectAll();
+                            if (myTurn)
+                            {
+                                if (championUnderMouse == ChampionSelected)
+                                    unselectAll();
+                                else
+                                {
+                                    unselectAll();
+                                    championUnderMouse.selected = true;
+                                    Debug.Log("You selected the " + hit.transform.name);
+                                }
+                            }
                             else
                             {
-                                unselectAll();
-                                championUnderMouse.selected = true;
-                                Debug.Log("You selected the " + hit.transform.name);
+                                    Debug.Log("Ainda não é seu turno");
+                                }
                             }
-                        }
                     }
                 }
                 else
@@ -73,6 +87,7 @@ public class GameMotor : MonoBehaviour {
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
                             hit.transform.GetComponent<ChampionsBase>().life -= ChampionSelected.damage;
+                            print(hit.transform.GetComponent<ChampionsBase>().name + " recebeu " + ChampionSelected.damage + " de dano de " + ChampionSelected.name);
                         }
                     }
                 }
