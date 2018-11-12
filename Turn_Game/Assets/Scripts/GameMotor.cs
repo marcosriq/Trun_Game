@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameMotor : MonoBehaviour {
@@ -7,14 +8,22 @@ public class GameMotor : MonoBehaviour {
     public ChampionsBase championUnderMouse;
     public ChampionsBase ChampionSelected;
     public GameObject[] champions;
+    public Text counterText;
     public bool myTurn;
+    public float turnCounter;
 
 	void Start () {
         champions = GameObject.FindGameObjectsWithTag("Champion");
+        turnCounter = 30;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        turnCounter -= Time.deltaTime;
+        counterText.text = "" + Mathf.FloorToInt(turnCounter);
+        if (turnCounter <= 0)
+            SwitchTurn();
+
         //Sistema de seleção e ataque \/
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -103,5 +112,10 @@ public class GameMotor : MonoBehaviour {
             champions[i].GetComponent<ChampionsBase>().selected = false;
         }
         ChampionSelected = null;
+    }
+    public void SwitchTurn()
+    {
+        myTurn = !myTurn;
+        turnCounter = 30;
     }
 }
