@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 188993310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: c42473f0ede708543a42fac9cc617150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 1641677974}
@@ -250,6 +250,8 @@ MonoBehaviour:
   damage: 30
   armor: 0
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &188993313
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -869,15 +871,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 722590845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: c42473f0ede708543a42fac9cc617150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 1462367872}
   selectChampEffect: {fileID: 2138041707}
   life: 100
   damage: 30
-  armor: 0
+  armor: 50
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &722590848
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1301,7 +1305,7 @@ GameObject:
   - component: {fileID: 1122358910}
   - component: {fileID: 1122358909}
   m_Layer: 0
-  m_Name: Champion_3
+  m_Name: Isis
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1330,7 +1334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1122358907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: b18ddf10f23508841a60806d43afedb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 977966070}
@@ -1339,6 +1343,8 @@ MonoBehaviour:
   damage: 30
   armor: 0
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &1122358910
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1736,7 +1742,7 @@ GameObject:
   - component: {fileID: 1341195686}
   - component: {fileID: 1341195685}
   m_Layer: 0
-  m_Name: Champion_1
+  m_Name: Mercury
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1765,15 +1771,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1341195683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: c42473f0ede708543a42fac9cc617150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 844907887}
   selectChampEffect: {fileID: 1530731818}
   life: 100
-  damage: 30
+  damage: 50
   armor: 0
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &1341195686
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1957,7 +1965,7 @@ GameObject:
   - component: {fileID: 1464584713}
   - component: {fileID: 1464584712}
   m_Layer: 0
-  m_Name: Champion_2
+  m_Name: Ansur
   m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1986,7 +1994,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464584710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a31ad95a5caa244d99de04c515f68cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 48371504}
@@ -1995,6 +2003,8 @@ MonoBehaviour:
   damage: 30
   armor: 0
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &1464584713
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2222,7 +2232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709162411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d171018499864683e1522dd10cbc6, type: 3}
+  m_Script: {fileID: 11500000, guid: c42473f0ede708543a42fac9cc617150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 496529061}
@@ -2231,6 +2241,8 @@ MonoBehaviour:
   damage: 30
   armor: 0
   selected: 0
+  isSilenced: 0
+  trueDamage: 0
 --- !u!135 &1709162414
 SphereCollider:
   m_ObjectHideFlags: 0

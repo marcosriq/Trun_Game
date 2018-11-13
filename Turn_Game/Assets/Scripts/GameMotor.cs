@@ -32,10 +32,12 @@ public class GameMotor : MonoBehaviour {
             Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red);
             if (hit.transform != null)
             {
+
                 if (hit.transform.tag == "Champion")
                 {
                     //Guarda o campeão sob o mouse em uma variável global\/
                     championUnderMouse = hit.transform.GetComponent<ChampionsBase>();
+
                     if (!championUnderMouse.selected)
                         //Ativa o efeito de destaque do personagem sob o mouse\/
                         championUnderMouse.highlightChampEffect.SetActive(true);
@@ -89,14 +91,17 @@ public class GameMotor : MonoBehaviour {
                 }
                 if (hit.transform.tag == "Enemy")
                 {
+                    //Guarda o campeão sob o mouse em uma variável global\/
+                    championUnderMouse = hit.transform.GetComponent<ChampionsBase>();
+
                     //Verifica se há um campeão selecionado para que o inimigo possa ser selecionado como alvo\/
                     if (ChampionSelected != null)
                     {
-                        hit.transform.GetComponent<ChampionsBase>().highlightChampEffect.SetActive(true);
+                        championUnderMouse.highlightChampEffect.SetActive(true);
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
-                            hit.transform.GetComponent<ChampionsBase>().life -= ChampionSelected.damage;
-                            print(hit.transform.GetComponent<ChampionsBase>().name + " recebeu " + ChampionSelected.damage + " de dano de " + ChampionSelected.name);
+                            ChampionSelected.Attack(championUnderMouse);
+                            print(championUnderMouse.name + " recebeu " + ChampionSelected.damage + " de dano de " + ChampionSelected.name);
                         }
                     }
                 }
