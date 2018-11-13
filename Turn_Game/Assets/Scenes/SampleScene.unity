@@ -197,7 +197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 56.590004, y: -200.70999, z: -188.67899}
 --- !u!1 &188993310
 GameObject:
@@ -248,7 +248,7 @@ MonoBehaviour:
   selectChampEffect: {fileID: 917549860}
   life: 100
   damage: 30
-  armor: 0
+  armor: 5
   selected: 0
   isSilenced: 0
   trueDamage: 0
@@ -1118,7 +1118,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1133,6 +1133,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1267939545}
+  - {fileID: 975279102}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1282,6 +1283,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4430712305429890, guid: 2868ebdeabe0e9e4db81454474e96d98,
     type: 2}
   m_PrefabInternal: {fileID: 892481531}
+--- !u!1 &975279101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975279102}
+  - component: {fileID: 975279104}
+  - component: {fileID: 975279103}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &975279102
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975279101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 767482089}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 262, y: 380}
+  m_SizeDelta: {x: 235.38, y: 79.51}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &975279103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975279101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: -3
+--- !u!222 &975279104
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975279101}
+  m_CullTransparentMesh: 0
 --- !u!1 &977966070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1131746108203654, guid: 2868ebdeabe0e9e4db81454474e96d98,
@@ -1648,7 +1724,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131522682286184, guid: a00ae84de31950442910d7a5cf98f5ab, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a00ae84de31950442910d7a5cf98f5ab, type: 2}
@@ -1994,7 +2070,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464584710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a31ad95a5caa244d99de04c515f68cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 27bcc6fa4b9c4df4eb19d8bdeb4b17d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlightChampEffect: {fileID: 48371504}
@@ -2849,11 +2925,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   championUnderMouse: {fileID: 0}
-  ChampionSelected: {fileID: 0}
+  championSelected: {fileID: 0}
+  enemies: []
   champions: []
   counterText: {fileID: 535736969}
   myTurn: 1
-  turnCounter: 0
+  turnTimer: 0
+  turnCount: 0
 --- !u!1001 &2029309646
 Prefab:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public abstract class ChampionsBase : MonoBehaviour {
     {
         if (selected)
         {
-            gameMotor.ChampionSelected = this;
+            gameMotor.championSelected = this;
             selectChampEffect.SetActive(true);
         }
         else
@@ -37,38 +37,41 @@ public abstract class ChampionsBase : MonoBehaviour {
             Destroy(transform.parent.gameObject);
     }
 
-
-    public void Attack(ChampionsBase target)
+    public void ApplyDamage(int dmg, ChampionsBase target)
     {
-        if (!isSilenced)
-        {
-            ApplySpecial();
-        }
-
         if (trueDamage)
         {
-            gameMotor.championUnderMouse.life -= damage;
+            target.life -= dmg;
         }
         else
         {
             int remainingDamage;
-            if(gameMotor.championUnderMouse.armor != 0)
+            if (target.armor != 0)
             {
-                if (damage <= gameMotor.championUnderMouse.armor) {
-                    gameMotor.championUnderMouse.armor -= damage;
+                if (dmg <= target.armor)
+                {
+                    target.armor -= dmg;
                 }
                 else
                 {
-                    remainingDamage = damage - gameMotor.championUnderMouse.armor;
-                    gameMotor.championUnderMouse.armor = 0;
-                    gameMotor.championUnderMouse.life -= remainingDamage;
+                    remainingDamage = dmg - target.armor;
+                    target.armor = 0;
+                    target.life -= remainingDamage;
                 }
             }
             else
             {
-                gameMotor.championUnderMouse.life -= damage;
+                target.life -= dmg;
             }
         }
+    }
+
+    public void Attack(ChampionsBase target)
+    {
+        if (!isSilenced)
+            ApplySpecial();
+
+        ApplyDamage(damage, target);
         trueDamage = false;
     }
     public abstract void ApplySpecial();

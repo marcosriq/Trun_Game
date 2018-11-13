@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameMotor : MonoBehaviour {
 
     public ChampionsBase championUnderMouse;
-    public ChampionsBase ChampionSelected;
+    public ChampionsBase championSelected;
+    public GameObject[] enemies;
     public GameObject[] champions;
     public Text counterText;
     public bool myTurn;
@@ -16,6 +17,7 @@ public class GameMotor : MonoBehaviour {
 	void Start () {
         turnCount = 1;
         champions = GameObject.FindGameObjectsWithTag("Champion");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         turnTimer = 30;
 	}
 	
@@ -44,7 +46,7 @@ public class GameMotor : MonoBehaviour {
                         //Ativa o efeito de destaque do personagem sob o mouse\/
                         championUnderMouse.highlightChampEffect.SetActive(true);
 
-                    if (ChampionSelected == null)
+                    if (championSelected == null)
                     {
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
@@ -66,7 +68,7 @@ public class GameMotor : MonoBehaviour {
                         {
                             if (myTurn)
                             {
-                                if (championUnderMouse == ChampionSelected)
+                                if (championUnderMouse == championSelected)
                                     unselectAll();
                                 else
                                 {
@@ -97,13 +99,13 @@ public class GameMotor : MonoBehaviour {
                     championUnderMouse = hit.transform.GetComponent<ChampionsBase>();
 
                     //Verifica se há um campeão selecionado para que o inimigo possa ser selecionado como alvo\/
-                    if (ChampionSelected != null)
+                    if (championSelected != null)
                     {
                         championUnderMouse.highlightChampEffect.SetActive(true);
                         if (Input.GetKeyDown(KeyCode.Mouse0))
                         {
-                            ChampionSelected.Attack(championUnderMouse);
-                            print(championUnderMouse.name + " recebeu " + ChampionSelected.damage + " de dano de " + ChampionSelected.name);
+                            championSelected.Attack(championUnderMouse);
+                            print(championUnderMouse.name + " recebeu " + championSelected.damage + " de dano de " + championSelected.name);
                         }
                     }
                 }
@@ -111,6 +113,7 @@ public class GameMotor : MonoBehaviour {
             
         }
     }
+
     void unselectAll()
     {
         for(int i = 0;i < champions.Length;i++)
@@ -118,7 +121,7 @@ public class GameMotor : MonoBehaviour {
             champions[i].GetComponent<ChampionsBase>().highlightChampEffect.SetActive(false);
             champions[i].GetComponent<ChampionsBase>().selected = false;
         }
-        ChampionSelected = null;
+        championSelected = null;
     }
     public void SwitchTurn()
     {
