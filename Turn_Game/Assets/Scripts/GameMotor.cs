@@ -10,18 +10,20 @@ public class GameMotor : MonoBehaviour {
     public GameObject[] champions;
     public Text counterText;
     public bool myTurn;
-    public float turnCounter;
+    public float turnTimer;
+    public int turnCount;
 
 	void Start () {
+        turnCount = 1;
         champions = GameObject.FindGameObjectsWithTag("Champion");
-        turnCounter = 30;
+        turnTimer = 30;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        turnCounter -= Time.deltaTime;
-        counterText.text = "" + Mathf.FloorToInt(turnCounter);
-        if (turnCounter <= 0)
+        turnTimer -= Time.deltaTime;
+        counterText.text = "" + Mathf.FloorToInt(turnTimer);
+        if (turnTimer <= 0)
             SwitchTurn();
 
         //Sistema de seleção e ataque \/
@@ -121,6 +123,7 @@ public class GameMotor : MonoBehaviour {
     public void SwitchTurn()
     {
         myTurn = !myTurn;
-        turnCounter = 30;
+        turnTimer = 30;
+        turnCount += 1;
     }
 }
