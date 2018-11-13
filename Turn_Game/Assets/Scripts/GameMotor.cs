@@ -44,6 +44,7 @@ public class GameMotor : MonoBehaviour {
 
                     if (!championUnderMouse.selected)
                         //Ativa o efeito de destaque do personagem sob o mouse\/
+                        
                         championUnderMouse.highlightChampEffect.SetActive(true);
 
                     if (championSelected == null)
@@ -52,9 +53,16 @@ public class GameMotor : MonoBehaviour {
                         {
                             if (myTurn)
                             {
-                                unselectAll();
-                                championUnderMouse.selected = true;
-                                Debug.Log("You selected the " + hit.transform.name);
+                                if (!championUnderMouse.isFrozen)
+                                {
+                                    unselectAll();
+                                    championUnderMouse.selected = true;
+                                    Debug.Log("You selected the " + hit.transform.name);
+                                }
+                                else
+                                {
+                                    Debug.Log("Este campeão está congelado neste turno");
+                                }
                             }
                             else
                             {
@@ -68,20 +76,27 @@ public class GameMotor : MonoBehaviour {
                         {
                             if (myTurn)
                             {
-                                if (championUnderMouse == championSelected)
-                                    unselectAll();
+                                if (!championUnderMouse.isFrozen)
+                                {
+                                    if (championUnderMouse == championSelected)
+                                        unselectAll();
+                                    else
+                                    {
+                                        unselectAll();
+                                        championUnderMouse.selected = true;
+                                        Debug.Log("You selected the " + hit.transform.name);
+                                    }
+                                }
                                 else
                                 {
-                                    unselectAll();
-                                    championUnderMouse.selected = true;
-                                    Debug.Log("You selected the " + hit.transform.name);
+                                    Debug.Log("Este campeão está congelado neste turno");
                                 }
                             }
                             else
                             {
-                                    Debug.Log("Ainda não é seu turno");
-                                }
+                                Debug.Log("Ainda não é seu turno");
                             }
+                        }
                     }
                 }
                 else

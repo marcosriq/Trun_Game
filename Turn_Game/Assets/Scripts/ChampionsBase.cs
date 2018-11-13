@@ -6,6 +6,7 @@ public abstract class ChampionsBase : MonoBehaviour {
 
     public GameObject highlightChampEffect;
     public GameObject selectChampEffect;
+    public TextMesh hitText;
 
     protected GameMotor gameMotor;
     public int life;
@@ -14,6 +15,7 @@ public abstract class ChampionsBase : MonoBehaviour {
     public bool selected;
     public bool isSilenced;
     public bool trueDamage;
+    public bool isFrozen;
 
     protected void Start()
     {
@@ -42,6 +44,8 @@ public abstract class ChampionsBase : MonoBehaviour {
         if (trueDamage)
         {
             target.life -= dmg;
+            hitText.transform.gameObject.SetActive(true);
+            hitText.text = "-" + dmg;
         }
         else
         {
@@ -51,17 +55,23 @@ public abstract class ChampionsBase : MonoBehaviour {
                 if (dmg <= target.armor)
                 {
                     target.armor -= dmg;
+                    hitText.transform.gameObject.SetActive(true);
+                    hitText.text = "-" + dmg;
                 }
                 else
                 {
                     remainingDamage = dmg - target.armor;
                     target.armor = 0;
                     target.life -= remainingDamage;
+                    hitText.transform.gameObject.SetActive(true);
+                    hitText.text = "-" + dmg;
                 }
             }
             else
             {
                 target.life -= dmg;
+                hitText.transform.gameObject.SetActive(true);
+                hitText.text = "-" + dmg;
             }
         }
     }
