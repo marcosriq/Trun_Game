@@ -6,6 +6,13 @@ public class MercuryBehaviour : ChampionsBase {
 
     public override void ApplySpecial()
     {
-        ApplyDamage(damage, gameMotor.championUnderMouse);
+        if (transform.tag == "Champion")
+        {
+            ApplyDamage(damage, gameMotor.championUnderMouse);
+        }
+        else if (transform.tag == "Enemy")
+        {
+            ApplyDamage(damage, gameMotor.enemyChampionUnderMouse);
+        }
     }
 }
